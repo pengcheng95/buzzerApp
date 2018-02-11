@@ -1,4 +1,5 @@
-'use strict'
+'use strict';
+
 import path from 'path';
 import webpack from "webpack"
 
@@ -18,7 +19,8 @@ const config = {
 			loader: 'babel-loader',
 			exclude: /node_modules/,
 			query: {
-				presets: ['es2015', 'react']
+				presets: ['stage-2', 'env',  'react'],
+				plugins: ['transform-class-properties']
 			}
 		}, { 
 			test: /\.(png|jpg)$/, 
