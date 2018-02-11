@@ -15,15 +15,27 @@ let io = {
     socket.on('updateButton', function(data) {
       cb(data);
     })
+  },
+
+  createRoom: function(roomName) {
+    console.log('sending room name');
+    socket.emit('createRoom', roomName)
+  },
+
+  roomTaken: function(cb) {
+    socket.on('roomTaken', function(data) {
+      cb(data);
+    })
+  },
+
+  roomCreated: function(cb) {
+    socket.on('roomCreated', function(data) {
+      cb(data);
+    })
   }
 
 
 }
 
-
-// socket.on('test', function(data) {
-// 	console.log('test is', data);
-// 	cb(data);
-// });
 
 export { io };

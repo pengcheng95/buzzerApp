@@ -9,6 +9,21 @@ io.on('connection', function(socket){
     io.emit('updateButton', true)
   })
 
+  socket.on('createRoom', function(data) {
+    db.get(data, function(err, reply) {
+      console.log('reply', reply)
+      if (!!!reply) {
+        db.set(data, data, 'EX', 120)
+        socket.room = data;
+        socket.join(data);
+        socket.emit('roomCreated', data);
+      } else {
+        socket.emit('roomTaken', 'roomTaken');
+      }
+    })
+
+  })
+
   socket.on('disconnect', function() {
     console.log('user disconnected');
   })

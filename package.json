@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/pengcheng95/reactExpress#readme",
   "dependencies": {
+    "antd": "^3.2.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
@@ -38,17 +39,20 @@
     "redis": "^2.8.0",
     "redux": "^3.7.2",
     "socket.io": "^2.0.4",
-    "socket.io-client": "^2.0.4"
+    "socket.io-client": "^2.0.4",
+    "style-loader": "^0.20.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-import": "^1.6.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "babel-register": "^6.26.0",
+    "css-loader": "^0.28.9",
     "nodemon": "^1.14.12",
     "webpack": "^3.10.0"
   }
