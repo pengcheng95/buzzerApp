@@ -13,6 +13,17 @@ class Room extends React.Component {
   }
 
   componentDidMount() {
+    io.buzzed((data) => {
+      notification['warning']({
+        message: `${data} buzzed`,
+        description: 'you lose',
+        style: {
+          width: 300,
+          marginLeft: 100
+        },
+      })
+    })
+
   }
 
   handleChange = (e) => {
@@ -25,12 +36,19 @@ class Room extends React.Component {
     })
   }
 
+  buzz = (e) => {
+    let data = {};
+    data.username = this.state.name;
+    data.roomName = this.state.roomName;
+    io.buzz(data);
+  }
+
 
 
 	render() {
     let inputPrefixStyle = { color: 'rgba(0,0,0,.25)' };
     let inputStyle = {width: '60%', clear: 'right'};
-    let buzzStyle = {width: '400px', height: '70px', marginTop: '50px' }
+    let buzzStyle = {width: '90%', height: '70px', marginTop: '50px' }
 
     return (
 
@@ -52,7 +70,7 @@ class Room extends React.Component {
                   />
                   <br/>
 
-                  <Button style={buzzStyle} value="large" type="primary">Buzz</Button>
+                  <Button style={buzzStyle} value="large" type="primary" onClick={this.buzz}>Buzz</Button>
 
 
                 </Col>

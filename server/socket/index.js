@@ -11,7 +11,6 @@ io.on('connection', function(socket){
 
   socket.on('createRoom', function(data) {
     db.get(data, function(err, reply) {
-      console.log('reply', reply)
       if (!!!reply) {
         db.set(data, data, 'EX', 120)
         socket.room = data;
@@ -21,7 +20,24 @@ io.on('connection', function(socket){
         socket.emit('roomTaken', 'roomTaken');
       }
     })
+  })
 
+  socket.on('joinRoom', function(data) {
+    db.get(data, function(err, reply) {
+      if (!!!reply) {
+        socket.emit('roomNoExist', 'roomNoExist');
+      } else {
+        socket.room = data;
+        socket.join(data);
+        socket.emit('roomCreated', data);
+        socket.emit('joinedRoom', data);
+      }
+    })
+  })
+
+  socket.on('buzz', function(data) {
+    console.log(data);
+    socket.broadcast.in(data.roomName).emit('buzzed', data.username)
   })
 
   socket.on('disconnect', function() {

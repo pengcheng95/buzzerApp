@@ -32,6 +32,33 @@ let io = {
     socket.on('roomCreated', function(data) {
       cb(data);
     })
+  },
+
+  joinRoom: function(roomName) {
+    console.log('joining room name');
+    socket.emit('joinRoom', roomName);
+  },
+
+  joinedRoom: function(cb) {
+    socket.on('joinedRoom', function(data) {
+      cb(data);
+    })
+  },
+
+  roomNoExist: function(cb) {
+    socket.on('roomNoExist', function(data) {
+      cb(data);
+    })
+  },
+
+  buzz: function(username) {
+    socket.emit('buzz', username);
+  },
+
+  buzzed: function(cb) {
+    socket.on('buzzed', function(data) {
+      cb(data);
+    })
   }
 
 

@@ -26,6 +26,21 @@ class Home extends React.Component {
     io.roomCreated((data) => {
       this.props.history.push(`room/${data}`);
     })
+
+    io.joinedRoom((data) => {
+      this.props.history.push(`room/${data}`);
+    })
+
+    io.roomNoExist(() => {
+      notification['warning']({
+        message: 'Room Name Does Not Exist',
+        description: 'Check to see if you inputed the correct room name or create room.',
+        style: {
+          width: 300,
+          marginLeft: 100
+        },
+      })
+    })
   }
 
   handleChange = (e) => {
@@ -40,6 +55,10 @@ class Home extends React.Component {
 
   createRoom = (e) => {
     io.createRoom(this.state.createRoom);
+  }
+
+  joinRoom = (e) => {
+    io.joinRoom(this.state.joinRoom);
   }
 
 
@@ -74,7 +93,7 @@ class Home extends React.Component {
                   value={this.state.joinRoom}
                   onChange={this.handleChange}
                 />
-                <Button style={buttonStyle}> Join </Button>
+                <Button style={buttonStyle} onClick={this.joinRoom}> Join </Button>
               </Col>
             </Row>
           </div>
