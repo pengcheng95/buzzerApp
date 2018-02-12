@@ -24,7 +24,7 @@ io.on('connection', function(socket){
 
   socket.on('joinRoom', function(data) {
     db.get(data, function(err, reply) {
-      if (!!!reply) {
+      if (!reply) {
         socket.emit('roomNoExist', 'roomNoExist');
       } else {
         socket.room = data;
