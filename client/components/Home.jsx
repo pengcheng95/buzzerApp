@@ -101,7 +101,7 @@ class Home extends React.Component {
                   value={this.state.joinRoom}
                   onChange={this.handleChange}
                 />
-                <Button style={buttonStyle} onClick={this.joinRoom}> Join </Button>
+                <Button type="primary" style={buttonStyle} onClick={this.joinRoom}> Join </Button>
               </Col>
             </Row>
           </div>

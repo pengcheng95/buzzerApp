@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Button } from 'antd';
 import Home from './Home.jsx';
 import Room from './Room.jsx';
 
@@ -20,11 +20,26 @@ class App extends React.Component {
 
 
   render() {
+    let containerStyle = {
+      display: 'flex',
+      'flex-direction': 'row',
+      'align-items': 'baseline',
+    }
+
+    let loginStyle = {
+      'margin-left': 'auto'
+
+    }
+
     return (
       <div> 
         <Layout className="layout">
-          <Header style={{ background: '#fff', textAlign: 'center'}}>
-            Buzzer Me
+          <Header style={{ background: '#ece9e6', textAlign: 'left'}}>
+            <div style={containerStyle}>
+              <h2> Buzzer.me </h2>
+              <Button size="small" style={loginStyle}>Log In</Button>
+
+            </div>
           </Header>
           <Router>
             <div>
