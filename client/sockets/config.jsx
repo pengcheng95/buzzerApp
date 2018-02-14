@@ -59,6 +59,10 @@ let io = {
     socket.on('buzzed', function(data) {
       cb(data);
     })
+  },
+
+  saveName: function(name) {
+    socket.emit('saveName', name);
   }
 
 

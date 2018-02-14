@@ -8,7 +8,8 @@ class Room extends React.Component {
 
   state = {
     roomName: this.props.location.pathname.substring(6),
-    name: ''
+    name: '',
+    listenToSpace: false,
 
   }
 
@@ -23,6 +24,12 @@ class Room extends React.Component {
         },
       })
     })
+
+  document.addEventListener('keypress', (event) => {
+    if (event.charCode === 32) {
+      this.buzz();
+    }
+  });
 
   }
 
@@ -41,6 +48,13 @@ class Room extends React.Component {
     data.username = this.state.name;
     data.roomName = this.state.roomName;
     io.buzz(data);
+  }
+
+  saveName = (e) => {
+    io.saveName(this.state.name);
+    this.setState({
+      listenToSpace: true
+    })
   }
 
 
@@ -68,9 +82,10 @@ class Room extends React.Component {
                     value={this.state.name}
                     onChange={this.handleChange}
                   />
+                  <Button size="small" onClick={this.saveName}>Save Name</Button>
                   <br/>
 
-                  <Button style={buzzStyle} value="large" type="primary" onClick={this.buzz}>Buzz</Button>
+                  <Button style={buzzStyle} size="large" type="primary" onClick={this.buzz}>Buzz</Button>
 
 
                 </Col>
