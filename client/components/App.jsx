@@ -22,32 +22,34 @@ class App extends React.Component {
   render() {
     let containerStyle = {
       display: 'flex',
-      'flex-direction': 'row',
-      'align-items': 'baseline',
+      'flexDirection': 'row',
+      'alignItems': 'baseline',
     }
 
     let loginStyle = {
-      'margin-left': 'auto'
+      'marginLeft': 'auto'
 
     }
 
     return (
       <div> 
+        <Router>
         <Layout className="layout">
           <Header style={{ background: '#ece9e6', textAlign: 'left'}}>
             <div style={containerStyle}>
-              <h2> Buzzer.me </h2>
+              <Link to="/"> <h2>  Buzzer.me </h2> </Link> 
               <Button size="small" style={loginStyle}>Log In</Button>
 
             </div>
           </Header>
-          <Router>
+          
             <div>
               <Route exact path="/" component={Home} />
               <Route path="/room/" component={Room} />
             </div>
-          </Router>
+          
         </Layout>
+        </Router>
       </div>
     )
   }
