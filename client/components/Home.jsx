@@ -66,11 +66,19 @@ class Home extends React.Component {
     let inputPrefixStyle = { color: 'rgba(0,0,0,.25)' };
     let inputStyle = {width: '90%', clear: 'right'};
     let buttonStyle = {marginTop: '30px', marginBottom: '20px'};
+    let layoutStyle = {
+      background: '#ece9e6', /* fallback for old browsers */
+      background: '-webkit-linear-gradient(to bottom, #ece9e6, #ffffff)', /* Chrome 10-25, Safari 5.1-6 */
+      background: 'linear-gradient(to bottom, #ece9e6, #ffffff)'
+      // background: '#c9d6ff', /* fallback for old browsers */
+      // background: '-webkit-linear-gradient(to bottom, #c9d6ff, #e2e2e2)', /* Chrome 10-25, Safari 5.1-6 */
+      // background: 'linear-gradient(to bottom, #c9d6ff, #e2e2e2)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
 
 		return (
-		  <Layout className="layout">
+		  <Layout className="layout" style={layoutStyle}>
         <Content style={{ padding: '20px' }}>
-          <div style={{ background: '#fff', padding: 12, minHeight: '70vh' }}>
+          <div style={{ padding: 12, minHeight: '70vh' }}>
             <Row>
               <Col span={12} offset={6} style={{ textAlign: 'center', paddingTop: '30px' }}>
                 <h3> Create a Room </h3>
