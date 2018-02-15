@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="layout ant-layout"
+  style={
+    Object {
+      "background": "linear-gradient(to bottom, #ece9e6, #ffffff)",
+    }
+  }
+>
+  <div
+    className="ant-layout-content"
+    style={
+      Object {
+        "padding": "20px",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "minHeight": "70vh",
+          "padding": 12,
+        }
+      }
+    >
+      <div
+        className="ant-row"
+        style={undefined}
+      >
+        <div
+          className="ant-col-12 ant-col-offset-6"
+          style={
+            Object {
+              "paddingTop": "30px",
+              "textAlign": "center",
+            }
+          }
+        >
+          <h3>
+             Create a Room 
+          </h3>
+          <span
+            className="ant-input-affix-wrapper"
+            style={
+              Object {
+                "clear": "right",
+                "width": "90%",
+              }
+            }
+          >
+            <span
+              className="ant-input-prefix"
+            >
+              <i
+                className="anticon anticon-laptop"
+                style={
+                  Object {
+                    "color": "rgba(0,0,0,.25)",
+                  }
+                }
+              />
+            </span>
+            <input
+              className="ant-input"
+              disabled={false}
+              name="createRoom"
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              style={null}
+              type="text"
+              value=""
+            />
+          </span>
+          <button
+            className="ant-btn ant-btn-primary"
+            onClick={[Function]}
+            style={
+              Object {
+                "marginBottom": "20px",
+                "marginTop": "30px",
+              }
+            }
+            type="button"
+          >
+            <span>
+               Create 
+            </span>
+          </button>
+          <h4
+            style={
+              Object {
+                "marginBottom": "15px",
+                "marginTop": "5px",
+              }
+            }
+          >
+             - OR - 
+          </h4>
+          <h3>
+             Join a Room 
+          </h3>
+          <span
+            className="ant-input-affix-wrapper"
+            style={
+              Object {
+                "clear": "right",
+                "width": "90%",
+              }
+            }
+          >
+            <span
+              className="ant-input-prefix"
+            >
+              <i
+                className="anticon anticon-laptop"
+                style={
+                  Object {
+                    "color": "rgba(0,0,0,.25)",
+                  }
+                }
+              />
+            </span>
+            <input
+              className="ant-input"
+              disabled={false}
+              name="joinRoom"
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              style={null}
+              type="text"
+              value=""
+            />
+          </span>
+          <button
+            className="ant-btn ant-btn-primary"
+            onClick={[Function]}
+            style={
+              Object {
+                "marginBottom": "20px",
+                "marginTop": "30px",
+              }
+            }
+            type="button"
+          >
+            <span>
+               Join 
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

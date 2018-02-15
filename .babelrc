@@ -1,1 +1,13 @@
-{ "presets": ['stage-2', 'env',  'react', 'airbnb']}
+
+{
+  "presets": [
+    "env",
+    "react",
+    "stage-2"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-class-properties",
+    "react-hot-loader/babel"
+  ]
+}

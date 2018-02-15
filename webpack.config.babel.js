@@ -20,7 +20,7 @@ const config = {
       loader: 'babel-loader',
       exclude: /node_modules/,
       query: {
-        presets: ['stage-2', 'env', 'react'],
+        presets: ['stage-2', 'env', 'react', 'jest'],
         plugins: ['transform-class-properties', ["import", options]]
       }
     }, {
