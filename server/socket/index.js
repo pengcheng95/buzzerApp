@@ -1,5 +1,5 @@
 import socket from 'socket.io';
-import db from '../../db';
+import redis from '../../db/redis.js';
 
 const io = socket();
 
@@ -10,9 +10,9 @@ io.on('connection', function(socket){
   })
 
   socket.on('createRoom', function(data) {
-    db.get(data, function(err, reply) {
+    redis.get(data, function(err, reply) {
       if (!!!reply) {
-        db.set(data, data, 'EX', 120)
+        redis.set(data, data, 'EX', 120)
         socket.room = data;
         socket.join(data);
         socket.emit('roomCreated', data);
@@ -23,7 +23,7 @@ io.on('connection', function(socket){
   })
 
   socket.on('joinRoom', function(data) {
-    db.get(data, function(err, reply) {
+    redis.get(data, function(err, reply) {
       if (!reply) {
         socket.emit('roomNoExist', 'roomNoExist');
       } else {

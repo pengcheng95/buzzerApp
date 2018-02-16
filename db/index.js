@@ -1,18 +1,26 @@
-import redis from "redis";
+import keys from '../keys.js';
 
-const client = redis.createClient();
+const Sequelize = require('sequelize');
 
+const sequelize = new Sequelize(keys.DB_NAME, keys.DB_USER, keys.DB_PASS, {
+  host: keys.DB_HOST,
+  dialect: 'postgres',
 
-client.on("error", function(err) {
-  console.log("Error " + err);
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
 });
 
-client.on("connect", () => {
-  console.log("Redis database connected");
-})
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully with buzzme');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 
-
-
-
-export default client;
+export default sequelize;

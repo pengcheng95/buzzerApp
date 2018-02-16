@@ -2,8 +2,8 @@
 import express from "express";
 import parser from "body-parser";
 import path from "path";
-import db from '../db';
 import io from './socket';
+import db from '../db/index.js';
 
 const app = express();
 
