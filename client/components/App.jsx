@@ -8,12 +8,15 @@ import {
 import { Layout, Button } from 'antd';
 import Home from './Home.jsx';
 import Room from './Room.jsx';
+import Login from './Login.jsx';
 
 const { Header, Content, Footer } = Layout;
 
 class App extends React.Component {
 
-  state = {};
+  state = {
+
+  }
 
   componentDidMount() {
   };
@@ -25,10 +28,12 @@ class App extends React.Component {
       'flexDirection': 'row',
       'alignItems': 'baseline',
     }
-
     let loginStyle = {
-      'marginLeft': 'auto'
-
+      'marginLeft': 'auto',
+      "padding": '0 20px 0 20px'
+    }
+    let linkStyle = {
+      color: 'black'
     }
 
     return (
@@ -38,14 +43,14 @@ class App extends React.Component {
           <Header style={{ background: '#ece9e6', textAlign: 'left'}}>
             <div style={containerStyle}>
               <Link to="/"> <h2>  Buzzer.me </h2> </Link> 
-              <Button size="small" style={loginStyle}>Log In</Button>
-
+               <Button size="small" style={loginStyle}> <Link to="/login" style={linkStyle}> Log In/Sign Up </Link> </Button> 
             </div>
           </Header>
           
             <div>
               <Route exact path="/" component={Home} />
               <Route path="/room/" component={Room} />
+              <Route path="/login" component={Login} />
             </div>
           
         </Layout>
